@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisenoExperimento", "DisenoExperimento\DisenoExperimento.csproj", "{38E0ACA7-0FEC-4415-BCAE-1AC29661AFC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{1374C480-B52F-4B4C-82B6-21DCFC02B9FD}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\Class Diagram1.jpg = ..\..\..\..\Desktop\Class Diagram1.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
