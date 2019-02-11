@@ -15,29 +15,33 @@ namespace DisenoExperimento
 
         private void creacionArregloAleatorio(String tipo,int tamaño)
         {
+            aleatorio = new Random();
             if (tipo.Equals("int"))
             {
                 arregloInt = new int[tamaño];
 
-                arregloInt.ToList().ForEach(x => x = aleatorio.Next(0, tamaño));
+                Enumerable.Range(0, tamaño).ToList().ForEach(x => arregloInt[x] = aleatorio.Next(0, tamaño));
             }else if (tipo.Equals("double"))
             {
                 arregloDouble = new double[tamaño];
 
-                arregloDouble.ToList().ForEach(x => x = aleatorio.NextDouble());
+                Enumerable.Range(0, tamaño).ToList().ForEach(x => arregloDouble[x] = aleatorio.NextDouble());
             }
             else if (tipo.Equals("long"))
             {
                 arregloLong = new long[tamaño];
 
-                arregloLong.ToList().ForEach(x => x = aleatorio.Next(Convert.ToInt32(long.MaxValue) / 2, Convert.ToInt32(long.MaxValue)));
+                long min = 10000000000001;
+                long max = 99999999999999;
+                Enumerable.Range(0, tamaño).ToList().ForEach(x => arregloLong[x] = min + (long)(aleatorio.NextDouble() * (max - min)));
+
             }
         }
 
         private void insertionSortInt()
         {
-            Console.WriteLine("El arreglo de enteros desordenados es:");
-            arregloInt.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de enteros desordenados es:");
+            //arregloInt.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             for (int i = 1; i < arregloInt.Length; i++)
@@ -52,17 +56,17 @@ namespace DisenoExperimento
                 }
                 arregloInt[j + 1] = key;
             }
-            Console.WriteLine("El arreglo de enteros ordenado por insertion es:");
-            arregloInt.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de enteros ordenado por insertion es:");
+            //arregloInt.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
 
         }
 
         private void insertionSortDouble()
         {
-            Console.WriteLine("El arreglo de double desordenados es:");
-            arregloDouble.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de double desordenados es:");
+            //arregloDouble.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             for (int i = 1; i < arregloDouble.Length; i++)
@@ -77,16 +81,16 @@ namespace DisenoExperimento
                 }
                 arregloDouble[j + 1] = key;
             }
-            Console.WriteLine("El arreglo de double ordenado por insertion es:");
-            arregloDouble.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de double ordenado por insertion es:");
+            //arregloDouble.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
         }
 
         private void insertionSortLong()
         {
-            Console.WriteLine("El arreglo de long desordenados es:");
-            arregloLong.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de long desordenados es:");
+            //arregloLong.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             for (int i = 1; i < arregloLong.Length; i++)
@@ -101,16 +105,16 @@ namespace DisenoExperimento
                 }
                 arregloLong[j + 1] = key;
             }
-            Console.WriteLine("El arreglo de long ordenado por insertion es:");
-            arregloLong.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de long ordenado por insertion es:");
+            //arregloLong.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
         }
 
         private void cocktailSortInt()
         {
-            Console.WriteLine("El arreglo de enteros desordenados es:");
-            arregloInt.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de enteros desordenados es:");
+            //arregloInt.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             bool swapped = true;
@@ -150,16 +154,16 @@ namespace DisenoExperimento
                 } 
                 start = start + 1;
             }
-            Console.WriteLine("El arreglo de enteros ordenado por cocktail es:");
-            arregloInt.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de enteros ordenado por cocktail es:");
+            //arregloInt.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
         }
 
         private void cocktailSortDouble()
         {
-            Console.WriteLine("El arreglo de double desordenados es:");
-            arregloDouble.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de double desordenados es:");
+            //arregloDouble.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             bool swapped = true;
@@ -199,16 +203,16 @@ namespace DisenoExperimento
                 }
                 start = start + 1;
             }
-            Console.WriteLine("El arreglo de double ordenado por cocktail es:");
-            arregloDouble.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de double ordenado por cocktail es:");
+            //arregloDouble.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
         }
 
         private void cocktailSortLong()
         {
-            Console.WriteLine("El arreglo de long desordenados es:");
-            arregloLong.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("El arreglo de long desordenados es:");
+            //arregloLong.ToList().ForEach(x => Console.Write(x));
             var tiempo = new System.Diagnostics.Stopwatch();
             tiempo.Start();
             bool swapped = true;
@@ -248,10 +252,10 @@ namespace DisenoExperimento
                 }
                 start = start + 1;
             }
-            Console.WriteLine("El arreglo de long ordenado por cocktail es:");
-            arregloLong.ToList().ForEach(x => Console.Write(x));
+            //Console.WriteLine("\nEl arreglo de long ordenado por cocktail es:");
+            //arregloLong.ToList().ForEach(x => Console.Write(x));
             tiempo.Stop();
-            Console.WriteLine($"Execution Time: {tiempo.ElapsedMilliseconds} ms");
+            Console.WriteLine($"\nExecution Time: {tiempo.ElapsedTicks} ticks");
         }
 
         static void Main(string[] args)
@@ -269,8 +273,101 @@ namespace DisenoExperimento
             modelo.creacionArregloAleatorio("int", 10);
             modelo.insertionSortInt();
 
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortInt();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= double");
+
+            Console.WriteLine("Algoritmo de busqueda= Insertion Sort");
+
+            modelo.creacionArregloAleatorio("double", 10);
+            modelo.insertionSortDouble();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+            modelo.cocktailSortDouble();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= long");
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.creacionArregloAleatorio("long", 10);
+            modelo.insertionSortLong();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortLong();
 
 
+
+            Console.WriteLine("Tamaño del arreglo= 100");
+
+            Console.WriteLine("Tipo de los elementos del arreglo= int");
+
+            Console.WriteLine("Algoritmo de busqueda= Insertion Sort");
+
+            modelo.creacionArregloAleatorio("int", 100);
+            modelo.insertionSortInt();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortInt();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= double");
+
+            Console.WriteLine("Algoritmo de busqueda= Insertion Sort");
+
+            modelo.creacionArregloAleatorio("double", 100);
+            modelo.insertionSortDouble();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+            modelo.cocktailSortDouble();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= long");
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.creacionArregloAleatorio("long", 100);
+            modelo.insertionSortLong();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortLong();
+
+
+            Console.WriteLine("Tamaño del arreglo= 1000");
+
+            Console.WriteLine("Tipo de los elementos del arreglo= int");
+
+            Console.WriteLine("Algoritmo de busqueda= Insertion Sort");
+
+            modelo.creacionArregloAleatorio("int", 1000);
+            modelo.insertionSortInt();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortInt();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= double");
+
+            Console.WriteLine("Algoritmo de busqueda= Insertion Sort");
+
+            modelo.creacionArregloAleatorio("double", 1000);
+            modelo.insertionSortDouble();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+            modelo.cocktailSortDouble();
+
+            Console.WriteLine("Tipo de los elementos del arreglo= long");
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.creacionArregloAleatorio("long", 1000);
+            modelo.insertionSortLong();
+
+            Console.WriteLine("Algoritmo de busqueda= cocktail Sort");
+
+            modelo.cocktailSortLong();
         }
     }
 }
